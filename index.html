@@ -133,6 +133,51 @@
 				    </aside>
 				  </section>
 
+				  <section>
+				    <pre>
+				      <code data-trim data-noescape class="language-python">
+					@swim
+					def kick(i=0):
+					    D("bd sd", i=i)
+					    D("synth", midinote="C4@maj7", i=i)
+					    again(kick, i=i+1)
+				      </code>
+				    </pre>
+				    <aside class="notes">
+				      This pattern can be rewritten with a chord name shorthand. Numerous scales and chords presets are integrated in the language.
+				    </aside>
+				  </section>
+
+				  <section>
+				    <pre>
+				      <code data-trim data-noescape class="language-python">
+					@swim
+					def kick(i=0):
+					    D("bd sd", i=i)
+					    D("synth", midinote="C4@maj7~2", i=i)
+					    again(kick, i=i+1)
+				      </code>
+				    </pre>
+				    <aside class="notes">
+				      We can make chord inversions. 
+				    </aside>
+				  </section>
+
+				  <section>
+				    <pre>
+				      <code data-trim data-noescape class="language-python">
+					@swim
+					def kick(i=0):
+					    D("bd sd", i=i)
+					    D("synth", midinote="{C4@maj7}", i=i)
+					    again(kick, i=i+1)
+				      </code>
+				    </pre>
+				    <aside class="notes">
+				      We can also make chords polyphonic.
+				    </aside>
+				  </section>
+				  
 				</section>
 
 				<section data-markdown>Conclusion</section>
