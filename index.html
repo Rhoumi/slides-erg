@@ -216,18 +216,24 @@
 				  </section>
 
 				  <section>
-				    Introducing some randomness:
+				    Rand, range, ramp and repeat 
 				    <pre>
 				      <code data-trim data-noescape class="language-python">
 					@swim
 					def pat(i=0, p=1):
 					    D("bd sd . sd", i=i)
-					    D("synth", midinote="C4|E4", i=i)
+					    D("synth",
+					        midinote="C4|E4 C4~G4 C4!3",
+					        cutoff="[100:1000, 100]",
+					        i=i)
 					    again(pat, i=i+1)
 				      </code>
 				    </pre>
 				    <aside class="notes">
-				      The pipe operator allows to flip a coin to chose between C and E.
+				      The pipe operator allows to flip a coin to chose between C and E.<br>
+				      The tilde operator creates a ramp between two extremal values (here it results in a chromatic ascent from C to G).<br>
+				      The bang/exclamation point operator instructs to repeat the value it is applied to a certain number of times.<br>
+				      The colon and square brackets allow to generate a range of evenly-spaced values, here cutoff values for a low-pass filter going from 100 to 1000 by steps of 100 (100, 200, 300 etc).
 				    </aside>
 				  </section>				  
 				  
