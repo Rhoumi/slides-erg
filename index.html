@@ -8,16 +8,65 @@
 
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
+		<link rel="stylesheet" href="dist/theme/serif.css">
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css">
 	</head>
-	<body>
+	<body data-background-color="black">
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section data-markdown>
+					# Live Coding
+					## 
+				</section>
+				<section data-markdown>
+					## Ourselves
+					- Raphaël Forment
+					- Agathe Herrou
+					- Rémi Georges
+				</section>
+				<section data-markdown>
+					## Outline
+					1) **Presentation:** what is live coding? why?
+					2) **Demo:** different flavours of live coding 
+					3) **Action:** learning the basics!
+				</section>
+				<section>
+					<h3> Presentation </h3>
+
+					<section>
+						> For a long time computer scientists have been erasing time from programming, and we're now putting it back in. For a long time computer musicians have been trying to hide the computation in their music, and we're celebrating it.
+					</section>
+
+					<section>
+						<ul>
+							<li><b>A programming technique</b></li>
+							<li><b>An artistic practice</b></li>
+							<li><b>A digital subculture</b></li>
+						</ul>
+					</section>
+					<section>
+						<blockquote>
+							The boundary between a piece and an instrument is deliberately vague, and it can fluctuate. [...] The instrument incorporates notational elements, but conversely the notational is becoming increasingly instrumental and systematic.
+						</blockquote>
+						<p>Magnusson, Thor, Sonic Writing, Bloomsbury Academics, p. 181 [...] 187.</p>
+					</section>
+					<section>
+						<blockquote>Many have claimed that 'The laptop is the new folk guitar'; if this is so, then PB_UP is the first acoustic computer music folk band: The laptop is their only instrument. It was synthesizer, realtime sound processor, networking device, and now it is understood as a fully autonomous musical instrument, including being its own hand-held sound system: 
+							<br>
+							<br>
+							player + laptop = improviser + instrument = music.</blockquote>
+					</section>
+
+				</section >
+
+				<section data-markdown>
+				  > A musical practice of the future emerges, which no longer waits for the development of new types of musical instruments, but takes over instruments that were not specially built for music. And it is precisely because of their limited, ideologically restricted musical use that they become relevant to music - as well as records, tape recorders, radios and other devices of apparently only technical value, which only reproduce sounds.
+
+				  Edgard Varèse - Rückblick auf die Zukunft (Musik-Konzepte 6), Heinz-Klaus Metzger & Rainer Riehn (1983)
+				</section>
+				<section data-markdown>Conclusion</section>
 			</div>
 		</div>
 
@@ -31,6 +80,8 @@
 			// - https://revealjs.com/config/
 			Reveal.initialize({
 				hash: true,
+				width: 1200,
+				height: 800,
 
 				// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
