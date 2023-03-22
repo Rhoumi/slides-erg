@@ -118,12 +118,27 @@
 				  </section>
 
 				  <section>
+				    Silences in patterns:
+				    <pre>
+				      <code data-trim data-noescape class="language-python">
+					@swim
+					def pat(i=0, p=1):
+					    D("bd sd . sd", i=i)
+					    again(pat, i=i+1)
+				      </code>
+				    </pre>
+				    <aside class="notes">
+				      The dot indicates a silence in a pattern.
+				    </aside>
+				  </section>
+
+				  <section>
 				    Pitched patterns:
 				    <pre>
 				      <code data-trim data-noescape class="language-python">
 					@swim
 					def pat(i=0, p=1):
-					    D("bd sd", i=i)
+					    D("bd sd . sd", i=i)
 					    D("synth", midinote="C4 E4 G4 B4", i=i)
 					    again(pat, i=i+1)
 				      </code>
@@ -136,13 +151,29 @@
 				    </aside>
 				  </section>
 
+				   <section>
+				    Silences can be put in parameters:
+				    <pre>
+				      <code data-trim data-noescape class="language-python">
+					@swim
+					def pat(i=0, p=1):
+					    D("bd sd . sd", i=i)
+					    D("synth", midinote="C4 E4 . B4", i=i)
+					    again(pat, i=i+1)
+				      </code>
+				    </pre>
+				    <aside class="notes">
+				      One of the notes can be replaced by a silence.
+				    </aside>
+				  </section>
+
 				  <section>
 				    Chord shorthand:
 				    <pre>
 				      <code data-trim data-noescape class="language-python">
 					@swim
 					def pat(i=0, p=1):
-					    D("bd sd", i=i)
+					    D("bd sd . sd", i=i)
 					    D("synth", midinote="C4@maj7", i=i)
 					    again(pat, i=i+1)
 				      </code>
@@ -158,7 +189,7 @@
 				      <code data-trim data-noescape class="language-python">
 					@swim
 					def pat(i=0, p=1):
-					    D("bd sd", i=i)
+					    D("bd sd . sd", i=i)
 					    D("synth", midinote="C4@maj7~2", i=i)
 					    again(pat, i=i+1)
 				      </code>
@@ -174,7 +205,7 @@
 				      <code data-trim data-noescape class="language-python">
 					@swim
 					def pat(i=0, p=1):
-					    D("bd sd", i=i)
+					    D("bd sd . sd", i=i)
 					    D("synth", midinote="{C4@maj7}", i=i)
 					    again(pat, i=i+1)
 				      </code>
@@ -185,20 +216,20 @@
 				  </section>
 
 				  <section>
-				    Silences in patterns:
+				    Introducing some randomness:
 				    <pre>
 				      <code data-trim data-noescape class="language-python">
 					@swim
 					def pat(i=0, p=1):
 					    D("bd sd . sd", i=i)
-					    D("synth", midinote="{C4@maj7}", i=i)
+					    D("synth", midinote="C4|E4", i=i)
 					    again(pat, i=i+1)
 				      </code>
 				    </pre>
 				    <aside class="notes">
-				      The dot indicates a silence in a pattern.
+				      We can also make chords polyphonic.
 				    </aside>
-				  </section>
+				  </section>				  
 				  
 				</section>
 
