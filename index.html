@@ -85,6 +85,14 @@
 					    again(pat)
 				      </code>
 				    </pre>
+
+				    Short syntax equivalent:
+				    <pre>
+				      <code data-trim data-noescape class="language-python">
+					Pa << D("bd")
+				      </code>
+				    </pre>
+				    
 				    <aside class="notes">
 				      `swim` indicates that the function is called again regularly, in rhythm<br>
 
@@ -108,12 +116,22 @@
 					    again(pat, i=i+1)
 				      </code>
 				    </pre>
+
+				    Short syntax:
+				    
+				    <pre>
+				      <code data-trim data-noescape class="language-python">
+					Pa << D("bd sd")
+				      </code>
+				    </pre>
+
 				    <aside class="notes">
 				      We have now added a snare drum to our pattern, which now spans two beats.<br>
 
 				      We have to indicate which part of the pattern is played at a particular call of the function.<br>
 
-				      This is done using an iterator argument, here called `i`, which, as it is implemented here, indicates how many times the function has already been called (starts at zero, is incremented of one at each successive call).
+				      This is done using an iterator argument, here called `i`, which, as it is implemented here, indicates how many times the function has already been called (starts at zero, is incremented of one at each successive call).<br>
+				      Note that the short syntax does not require that you use an iterator.
 				    </aside>
 				  </section>
 
@@ -127,6 +145,15 @@
 					    again(pat, i=i+1)
 				      </code>
 				    </pre>
+
+				    Short syntax:
+				    
+				    <pre>
+				      <code data-trim data-noescape class="language-python">
+					Pa << D("bd sd . sd")
+				      </code>
+				    </pre>
+
 				    <aside class="notes">
 				      The dot indicates a silence in a pattern.
 				    </aside>
@@ -143,11 +170,15 @@
 					    again(pat, i=i+1)
 				      </code>
 				    </pre>
+
+				    This does not have a short syntax equivalent.
+
 				    <aside class="notes">
 				      We can add another pattern to be played simultaneously.<br>
-
-				      The main pattern has only one element, which specifies the instrument, and the pitch is indicated by a secondary pattern passed to the argument `midinote`.<br>
-				      We here play an arpeggio over the course of four beats.
+				      The main pattern has only one element, which specifies the instrument,
+				      and the pitch is indicated by a secondary pattern passed to the argument `midinote`.<br>
+				      We here play an arpeggio over the course of four beats.<br>
+				      The presence of two senders is not translatable in short syntax.
 				    </aside>
 				  </section>
 
