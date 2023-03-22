@@ -267,8 +267,59 @@
 				      The colon and square brackets allow to generate a range of evenly-spaced values, here cutoff values for a low-pass filter going from 100 to 1000 by steps of 100 (100, 200, 300 etc).
 				    </aside>
 				  </section>				  
-				  
 				</section>
+				
+				<section>
+				  <h3>Rhythm</h3>
+				  
+				  <code>p</code> = period of a function
+
+				  <pre>
+				    <code data-trim data-noescape class="language-python">
+				      @swim
+				      def pat(p=0.5, i=0): # p=0.5: the function goes twice as fast
+				          D("bd sd . sd", i=i)
+				          D("synth",
+				              midinote="C4|E4 C4~G4 C4!3",
+				              cutoff="[100:1000, 100]",
+				              i=i)
+				          again(pat, p=0.5, i=i+1)
+				    </code>
+				  </pre>
+				  
+				  <code>r</code> = rate of incrementation
+				    <pre>
+				      <code data-trim data-noescape class="language-python">
+					@swim
+					def pat(p=1, i=0):
+					    D("bd sd . sd", i=i)
+					    D("synth",
+					        midinote="C4|E4 C4~G4 C4!3",
+					        cutoff="[100:1000, 100]",
+					        i=i)
+					    again(pat, p=1, i=i+1)
+				      </code>
+				    </pre>
+				  
+				  <code>d</code> = divisor, skips events when i is a multiple
+				    <pre>
+				      <code data-trim data-noescape class="language-python">
+					@swim
+					def pat(p=1, i=0):
+					    D("bd sd . sd", i=i)
+					    D("synth",
+					        midinote="C4|E4 C4~G4 C4!3",
+					        cutoff="[100:1000, 100]",
+					        i=i)
+					    again(pat, p=1, i=i+1)
+				      </code>
+				    </pre>
+				  
+				    <aside class="notes">	
+				      The argument p controls the period of time after which the functions calls itself back. The lower it is, the faster the function goes.<br>
+				    </aside>
+				  </section>
+				  
 
 				<section>
 				  <h3>Now make some sound!</h3>
