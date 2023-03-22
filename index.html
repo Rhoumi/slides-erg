@@ -111,9 +111,9 @@
 				    <pre>
 				      <code data-trim data-noescape class="language-python">
 					@swim
-					def pat(i=0):
+					def pat(p=1, i=0):
 					    D("bd sd", i=i)
-					    again(pat, i=i+1)
+					    again(pat, p=1, i=i+1)
 				      </code>
 				    </pre>
 
@@ -140,9 +140,9 @@
 				    <pre>
 				      <code data-trim data-noescape class="language-python">
 					@swim
-					def pat(i=0, p=1):
+					def pat(p=1, i=0):
 					    D("bd sd . sd", i=i)
-					    again(pat, i=i+1)
+					    again(pat, p=1, i=i+1)
 				      </code>
 				    </pre>
 
@@ -164,10 +164,10 @@
 				    <pre>
 				      <code data-trim data-noescape class="language-python">
 					@swim
-					def pat(i=0, p=1):
+					def pat(p=1, i=0):
 					    D("bd sd . sd", i=i)
 					    D("synth", midinote="C4 E4 G4 B4", i=i)
-					    again(pat, i=i+1)
+					    again(pat, p=1, i=i+1)
 				      </code>
 				    </pre>
 
@@ -187,10 +187,10 @@
 				    <pre>
 				      <code data-trim data-noescape class="language-python">
 					@swim
-					def pat(i=0, p=1):
+					def pat(p=1, i=0):
 					    D("bd sd . sd", i=i)
 					    D("synth", midinote="C4 E4 . B4", i=i)
-					    again(pat, i=i+1)
+					    again(pat, p=1, i=i+1)
 				      </code>
 				    </pre>
 				    <aside class="notes">
@@ -203,10 +203,10 @@
 				    <pre>
 				      <code data-trim data-noescape class="language-python">
 					@swim
-					def pat(i=0, p=1):
+					def pat(p=1, i=0):
 					    D("bd sd . sd", i=i)
 					    D("synth", midinote="C4@maj7", i=i)
-					    again(pat, i=i+1)
+					    again(pat, p=1, i=i+1)
 				      </code>
 				    </pre>
 				    <aside class="notes">
@@ -219,10 +219,10 @@
 				    <pre>
 				      <code data-trim data-noescape class="language-python">
 					@swim
-					def pat(i=0, p=1):
+					def pat(p=1, i=0):
 					    D("bd sd . sd", i=i)
 					    D("synth", midinote="C4@maj7^2", i=i)
-					    again(pat, i=i+1)
+					    again(pat, p=1, i=i+1)
 				      </code>
 				    </pre>
 				    <aside class="notes">
@@ -235,10 +235,10 @@
 				    <pre>
 				      <code data-trim data-noescape class="language-python">
 					@swim
-					def pat(i=0, p=1):
+					def pat(p=1, i=0):
 					    D("bd sd . sd", i=i)
 					    D("synth", midinote="{C4@maj7}", i=i)
-					    again(pat, i=i+1)
+					    again(pat, p=1, i=i+1)
 				      </code>
 				    </pre>
 				    <aside class="notes">
@@ -251,13 +251,13 @@
 				    <pre>
 				      <code data-trim data-noescape class="language-python">
 					@swim
-					def pat(i=0, p=1):
+					def pat(p=1, i=0):
 					    D("bd sd . sd", i=i)
 					    D("synth",
 					        midinote="C4|E4 C4~G4 C4!3",
 					        cutoff="[100:1000, 100]",
 					        i=i)
-					    again(pat, i=i+1)
+					    again(pat, p=1, i=i+1)
 				      </code>
 				    </pre>
 				    <aside class="notes">
