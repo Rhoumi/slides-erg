@@ -95,8 +95,28 @@
 
 				      `again` indicates that once the function is done with its musical duties, it schedules itself to be called again at the next bar
 				    </aside>
-				  </section>				  
+				  </section>
+
+				  <section>
+				    <pre>
+				      <code data-trim data-noescape>
+					@swim
+					def kick(i=0):
+					    D("bd sd", i=i)
+					    again(kick, i=i+1)
+				      </code>
+				    </pre>
+				    <aside class="notes">
+				      We have now added a snare drum to our pattern, which now spans two beats.
+
+				      We have to indicate which part of the pattern is played at a particular call of the function.
+
+				      This is done using an iterator argument, here called `i`, which, as it is implemented here, indicates how many times the function has already been called (starts at zero, is incremented of one at each successive call).
+				    </aside>
+				  </section>		  
+
 				</section>
+
 				<section data-markdown>Conclusion</section>
 			</div>
 		</div>
