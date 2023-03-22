@@ -113,7 +113,25 @@
 
 				      This is done using an iterator argument, here called `i`, which, as it is implemented here, indicates how many times the function has already been called (starts at zero, is incremented of one at each successive call).
 				    </aside>
-				  </section>		  
+				  </section>
+
+				  <section>
+				    <pre>
+				      <code data-trim data-noescape class="language-python">
+					@swim
+					def kick(i=0):
+					    D("bd sd", i=i)
+					    D("synth", midinote="C4 E4 G4 B4", i=i)
+					    again(kick, i=i+1)
+				      </code>
+				    </pre>
+				    <aside class="notes">
+				      We can add another pattern to be played simultaneously.
+
+				      The main pattern has only one element, which specifies the instrument, and the pitch is indicated by a secondary pattern passed to the argument `midinote`.
+				      We here play an arpeggio over the course of four beats.
+				    </aside>
+				  </section>
 
 				</section>
 
