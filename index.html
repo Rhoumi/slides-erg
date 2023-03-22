@@ -79,9 +79,9 @@
 				    <pre>
 				      <code data-trim data-noescape class="language-python">
 					@swim
-					def kick():
+					def pat():
 					    D("bd")
-					    again(kick)
+					    again(pat)
 				      </code>
 				    </pre>
 				    <aside class="notes">
@@ -101,9 +101,9 @@
 				    <pre>
 				      <code data-trim data-noescape class="language-python">
 					@swim
-					def kick(i=0):
+					def pat(i=0):
 					    D("bd sd", i=i)
-					    again(kick, i=i+1)
+					    again(pat, i=i+1)
 				      </code>
 				    </pre>
 				    <aside class="notes">
@@ -119,10 +119,10 @@
 				    <pre>
 				      <code data-trim data-noescape class="language-python">
 					@swim
-					def kick(i=0):
+					def pat(i=0):
 					    D("bd sd", i=i)
 					    D("synth", midinote="C4 E4 G4 B4", i=i)
-					    again(kick, i=i+1)
+					    again(pat, i=i+1)
 				      </code>
 				    </pre>
 				    <aside class="notes">
@@ -137,10 +137,10 @@
 				    <pre>
 				      <code data-trim data-noescape class="language-python">
 					@swim
-					def kick(i=0):
+					def pat(i=0):
 					    D("bd sd", i=i)
 					    D("synth", midinote="C4@maj7", i=i)
-					    again(kick, i=i+1)
+					    again(pat, i=i+1)
 				      </code>
 				    </pre>
 				    <aside class="notes">
@@ -152,10 +152,10 @@
 				    <pre>
 				      <code data-trim data-noescape class="language-python">
 					@swim
-					def kick(i=0):
+					def pat(i=0):
 					    D("bd sd", i=i)
 					    D("synth", midinote="C4@maj7~2", i=i)
-					    again(kick, i=i+1)
+					    again(pat, i=i+1)
 				      </code>
 				    </pre>
 				    <aside class="notes">
@@ -167,10 +167,25 @@
 				    <pre>
 				      <code data-trim data-noescape class="language-python">
 					@swim
-					def kick(i=0):
+					def pat(i=0):
 					    D("bd sd", i=i)
 					    D("synth", midinote="{C4@maj7}", i=i)
-					    again(kick, i=i+1)
+					    again(pat, i=i+1)
+				      </code>
+				    </pre>
+				    <aside class="notes">
+				      We can also make chords polyphonic.
+				    </aside>
+				  </section>
+
+				  <section>
+				    <pre>
+				      <code data-trim data-noescape class="language-python">
+					@swim
+					def pat(i=0):
+					    D("bd sd . sd", i=i)
+					    D("synth", midinote="{C4@maj7}", i=i)
+					    again(pat, i=i+1)
 				      </code>
 				    </pre>
 				    <aside class="notes">
