@@ -12,6 +12,14 @@
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+		<style>
+		  .container{
+		      display: flex;
+		  }
+		  .col{
+		      flex: 1;
+		  }
+		</style>
 	</head>
 	<body data-background-color="black">
 		<div class="reveal">
@@ -370,14 +378,6 @@
 
 				  <section>
 
-						<style>
-						.container{
-						    display: flex;
-						}
-						.col{
-						    flex: 1;
-						}
-						</style>
 						
 						<div class="container">
 						
@@ -421,23 +421,27 @@
 				  </section>
 
 				  <section>
-				    A more complex pattern with an iterator:
-				    <pre>
+				    <div class="container">
+				      <div class="col">
+					Long
+					<pre>
 				      <code data-trim data-noescape class="language-python">
 					@swim
 					def pat(p=1, i=0):
 					    D("bd sd", i=i)
-					    again(pat, p=1, i=i+1)
+					again(pat, p=1, i=i+1)
 				      </code>
-				    </pre>
-
-				    Short syntax:
-				    
-				    <pre>
-				      <code data-trim data-noescape class="language-python">
-					Pa << D("bd sd")
-				      </code>
-				    </pre>
+					</pre>
+				      </div>
+				      
+				      <div class="col">
+					Short
+					<pre>
+					  <code data-trim data-noescape class="language-python">
+					    Pa << D("bd sd")
+						  </code>
+					</pre>
+				    </div></div>
 
 				    <aside class="notes">
 				      We have now added a snare drum to our pattern, which now spans two beats.<br>
@@ -450,7 +454,9 @@
 				  </section>
 
 				  <section>
-				    Silences in patterns:
+				    <div class="container">
+				      <div class="col">
+					Long
 				    <pre>
 				      <code data-trim data-noescape class="language-python">
 					@swim
@@ -459,14 +465,17 @@
 					    again(pat, p=1, i=i+1)
 				      </code>
 				    </pre>
-
-				    Short syntax:
-				    
+				      </div>
+				      
+				      <div class="col">
+					Short				    
 				    <pre>
 				      <code data-trim data-noescape class="language-python">
 					Pa << D("bd sd . sd")
 				      </code>
 				    </pre>
+				      </div>
+				    </div>
 
 				    <aside class="notes">
 				      The dot indicates a silence in a pattern.
