@@ -264,6 +264,12 @@
 						<embed width='1200' height='600' src="https://gibber.cc"></embed>
 					</section>
 
+					<section>
+						<br>
+						<br>
+						<br>
+						<embed width='1200' height='600' src="https://www.timohoogland.com/mercury-livecoding/"></embed>
+					</section>
 
 					<section>
 						<br>
@@ -376,208 +382,252 @@
 				<section>
 				  <h3> Tutorial </h3>
 
-				  <section>
 
-						
+				  <section>
+				  	<b>Sardine</b> has two different syntaxes. They both do the same thing:
+				  	<ul>
+				  		<li> <b>Surfboards</b> or <b>Players</b> : abstract and simplified, limited.
+				  		<li> <b>Swimming Functions</b> : closer to Python, verbose but powerful.
+				  	</ul>
+				  </section>
+
+				  <section>
 						<div class="container">
-						
 						<div class="col">
-						<h4>Long</h4>
+						<h4>Swimming</h4>
 				    <pre>
 				      <code data-trim data-noescape class="language-python">
 							@swim
-							def pat():
+							def pat(p=1, i=0):
 					    	D("bd")
-					    	again(pat)
+					    	again(pat, p=1, i=i+1)
+
+			    silence() # gentle
+			    panic() # unpolite
+       silence(pat)
+       pat.stop()
 				      </code>
 				    </pre>
-
 						</div>
-						
 						<div class="col">
-						<h4>Short</h4>
+						<h4>Players</h4>
 				    <pre>
 				      <code data-trim data-noescape class="language-python">
-					      Pa * d("bd")
+      Pa * d("bd", p=1)
+
+
+
+
+		    silence() # gentle
+		    panic() # unpolite
+      silence(pat)
+      pat.stop()
+
+
 				      </code>
 				    </pre>
-
 						</div>
-						
 						</div>
-
-				    
-				    <aside class="notes">
-				      `swim` indicates that the function is called again regularly, in rhythm<br>
-
-				      The definition of the function follows the ususal Python syntax.<br>
-
-				      `D` indicates that the pattern passed as an argument is sent to SuperDirt to be interpreted as a musical pattern<br>
-
-				      For now our pattern only contains one kick-drum sound, but we will see just now more complex ones.<br>
-
-				      `again` indicates that once the function is done with its musical duties, it schedules itself to be called again at the next bar
-				    </aside>
 				  </section>
 
 				  <section>
-				    <div class="container">
-				      <div class="col">
-					Long
-					<pre>
+						<div class="container">
+						<div class="col">
+						<h4>Swimming</h4>
+				    <pre>
 				      <code data-trim data-noescape class="language-python">
-					@swim
-					def pat(p=1, i=0):
-					    D("bd sd", i=i)
-					again(pat, p=1, i=i+1)
+							@swim
+							def pat(p=1, i=0):
+					    	D("bd hh sn hh . hh", i=i)
+					    	again(pat, p=1, i=i+1)
 				      </code>
-					</pre>
-				      </div>
-				      
-				      <div class="col">
-					Short
-					<pre>
-					  <code data-trim data-noescape class="language-python">
-					    Pa << D("bd sd")
-						  </code>
-					</pre>
-				    </div></div>
+				    </pre>
+						</div>
+						<div class="col">
+						<h4>Players</h4>
+				    <pre>
+				      <code data-trim data-noescape class="language-python">
+      Pa * d("bd hh sn hh . hh", p=1)
+				      </code>
+				    </pre>
+						</div>
+						</div>
+				  </section>
 
-				    <aside class="notes">
-				      We have now added a snare drum to our pattern, which now spans two beats.<br>
 
-				      We have to indicate which part of the pattern is played at a particular call of the function.<br>
-
-				      This is done using an iterator argument, here called `i`, which, as it is implemented here, indicates how many times the function has already been called (starts at zero, is incremented of one at each successive call).<br>
-				      Note that the short syntax does not require that you use an iterator.
-				    </aside>
+				  <section>
+						<div class="container">
+						<div class="col">
+						<h4>Swimming</h4>
+				    <pre>
+				      <code data-trim data-noescape class="language-python">
+							@swim
+							def pat(p=1, i=0):
+					    	D("bd hh sn hh . hh", i=i)
+					    	D("jvbass", n='C3 C4', i=i)
+					    	again(pat, p=1, i=i+1)
+				      </code>
+				    </pre>
+						</div>
+						<div class="col">
+						<h4>Players</h4>
+				    <pre>
+				      <code data-trim data-noescape class="language-python">
+      Pa * d("bd hh sn hh . hh", p=1)
+      Pb * d("jvbass", n='C3 C4', p=1)
+				      </code>
+				    </pre>
+						</div>
+						</div>
 				  </section>
 
 				  <section>
-				    <div class="container">
-				      <div class="col">
-					Long
+						<div class="container">
+						<div class="col">
+						<h4>Swimming</h4>
 				    <pre>
 				      <code data-trim data-noescape class="language-python">
-					@swim
-					def pat(p=1, i=0):
-					    D("bd sd . sd", i=i)
-					    again(pat, p=1, i=i+1)
+							@swim
+							def pat(p=1, i=0):
+					    	D("bd!3 hh sn hh . hh", i=i) 
+					    	D("jvbass jvbass:2!3",
+					    	  n='C3 C4', i=i)
+					    	again(pat, p=1, i=i+1)
 				      </code>
 				    </pre>
-				      </div>
-				      
-				      <div class="col">
-					Short				    
+						</div>
+						<div class="col">
+						<h4>Players</h4>
 				    <pre>
 				      <code data-trim data-noescape class="language-python">
-					Pa << D("bd sd . sd")
+      Pa * d("bd!3 hh sn hh . hh", p=1)
+      Pb * d("jvbass jvbass:2!3",
+             n='C3 C4', p=1)
 				      </code>
 				    </pre>
-				      </div>
-				    </div>
-
-				    <aside class="notes">
-				      The dot indicates a silence in a pattern.
-				    </aside>
+						</div>
+						</div>
 				  </section>
 
+
 				  <section>
-				    Pitched patterns:
+				  	We are now going to switch to <b>Players</b>!
+				  </section>
+
+
+	
+
+				  <section>
+				  	Pick the sample names you like, explore using the <b>:</b> operator.
 				    <pre>
-				      <code data-trim data-noescape class="language-python">
-					@swim
-					def pat(p=1, i=0):
-					    D("bd sd . sd", i=i)
-					    D("synth", midinote="C4 E4 G4 B4", i=i)
-					    again(pat, p=1, i=i+1)
+				      <code data-trim data-noescape class='language-plaintext'>
+ab ade ades2 ades3 ades4 alex alphabet amencutup armora arp arpy auto baa baa2 bass bass0
+bass1 bass2 bass3 bassdm bassfoo battles bd bend bev bin birds birds3 bleep blip blue bottle
+breaks125 breaks152 breaks157 breaks165 breath bubble can casio cb cc chin circus clak click
+clubkick co coins control cosmicg cp cr crow d db diphone diphone2 dist dork2 dorkbot dr dr2
+dr55 dr_few drum drumtraks e east electro1 em2 erk f feel feelfx fest fire flick fm foo future
+gab gabba gabbaloud gabbalouder glasstap glitch glitch2 gretsch gtr h hand hardcore hardkick
+haw hc hh hh27 hit hmm ho hoover house ht if ifdrums incoming industrial insect invaders jazz
+jungbass jungle juno jvbass kicklinn koy kurt latibro led less lighter linnhats lt made made2
+mash mash2 metal miniyeah monsterb moog mouth mp3 msg mt mute newnotes noise noise2 notes
+numbers oc off outdoor pad padlong pebbles perc peri pluck popkick print proc procshort psr
+rave rave2 ravemono realclaps reverbkick rm rs sax sd seawolf sequential sf sheffield short
+sid sine sitar sn space speakspell speech speechless speedupdown stab stomp subroc3d sugar
+sundance tabla tabla2 tablex tacscan tech techno tink tok toys trump ul ulgab uxay v voodoo
+wind wobble world xmas yeah
 				      </code>
 				    </pre>
+				    <pre><code>Pa * d('bd:2 cp speechless:4')</code></pre>
+				  </section>
 
-				    This does not have a short syntax equivalent.
 
-				    <aside class="notes">
-				      We can add another pattern to be played simultaneously.<br>
-				      The main pattern has only one element, which specifies the instrument,
-				      and the pitch is indicated by a secondary pattern passed to the argument `midinote`.<br>
-				      We here play an arpeggio over the course of four beats.<br>
-				      The presence of two senders is not translatable in short syntax.
-				    </aside>
+				  <section>
+				  	You can use the <b>SuperDirt</b> default synthesizers too!
+				    <pre>
+				      <code data-trim data-noescape class='language-plaintext'>
+				                 superchip superpiano superkick superhat supersnare supervibe
+				      </code>
+				    </pre>
+				    They all have parameters that you'll have to learn.
 				  </section>
 
 				   <section>
-				    Silences can be put in parameters:
-				    <pre>
-				      <code data-trim data-noescape class="language-python">
-					@swim
-					def pat(p=1, i=0):
-					    D("bd sd . sd", i=i)
-					    D("synth", midinote="C4 E4 . B4", i=i)
-					    again(pat, p=1, i=i+1)
+				   	 Changing the period (<b>1 period = 1 beat</b>)
+				    <pre class="r-fit-text">
+				      <code  data-trim data-noescape class="language-python">
+Pa * d('bd cp', p=0.5) # sets period to 0.5, yields 2 notes per beat
+Pa * d('bd cp hh:2', p=0.5) # adds the hh:2 sample, meter is now felt in 3
+Pa * d('bd cp hh:2', p=0.25) # period is 0.25, 4 notes per beat, rhythm is twice as fast
+Pa * d('bd!2 cp hh:2 .', p=0.25) # adds bd repeat and a rest "." - meter is felt in 5.
 				      </code>
 				    </pre>
-				    <aside class="notes">
-				      One of the notes can be replaced by a silence.
-				    </aside>
-				  </section>
-
-				  <section>
-				    Chord shorthand:
+				    <br>
+				    <br>
+				   	Adding keyword parameters (<b>key=value</b>)
 				    <pre>
-				      <code data-trim data-noescape class="language-python">
-					@swim
-					def pat(p=1, i=0):
-					    D("bd sd . sd", i=i)
-					    D("synth", midinote="C4@maj7", i=i)
-					    again(pat, p=1, i=i+1)
+				      <code  data-trim data-noescape class="language-python">
+Pa * d('reverbkick east:4 yeah:2 mt', speed=1.2, shape=0.5, p=0.5) 
+Pa * d('reverbkick east:4 yeah:2 mt', speed='1.2 2', shape=0.5, p='0.5 0.25')
+Pa * d('reverbkick east:4 yeah:2 mt cr', speed='1.2 2.2', shape=0.7, p='0.5!2 0.25!5')
 				      </code>
 				    </pre>
-				    <aside class="notes">
-				      This pattern can be rewritten with a chord name shorthand. Numerous scales and chords presets are integrated in the language.
-				    </aside>
 				  </section>
 
-				  <section>
-				    Chord inversion:
+
+				   <section>
+				   	Changing the tempo
 				    <pre>
-				      <code data-trim data-noescape class="language-python">
-					@swim
-					def pat(p=1, i=0):
-					    D("bd sd . sd", i=i)
-					    D("synth", midinote="C4@maj7^2", i=i)
-					    again(pat, p=1, i=i+1)
+				      <code  data-trim data-noescape class="language-python">
+				      clock.tempo        # the current tempo
+				      bowl.clock.tempo   # same thing
+
+				      clock.tempo = 150  # tempo in BPM
 				      </code>
 				    </pre>
-				    <aside class="notes">
-				      We can make chord inversions. 
-				    </aside>
-				  </section>
-
-				  <section>
-				    Polyphonic chord:
+				    <br>
+				    <br>
+				   	Adding keyword parameters (<b>key=value</b>)
 				    <pre>
-				      <code data-trim data-noescape class="language-python">
-					@swim
-					def pat(p=1, i=0):
-					    D("bd sd . sd", i=i)
-					    D("synth", midinote="{C4@maj7}", i=i)
-					    again(pat, p=1, i=i+1)
+				      <code  data-trim data-noescape class="language-python">
+Pa * d('reverbkick east:4 yeah:2 mt', speed=1.2, shape=0.5, p=0.5) 
+Pa * d('reverbkick east:4 yeah:2 mt', speed='1.2 2', shape=0.5, p='0.5 0.25')
+Pa * d('reverbkick east:4 yeah:2 mt cr', speed='1.2 2.2', shape=0.7, p='0.5!2 0.25!5')
 				      </code>
 				    </pre>
-				    <aside class="notes">
-				      We can also make chords polyphonic.
-				    </aside>
 				  </section>
 
+					<section>
+						<br>
+						<br>
+						Sardine can pattern everything!
+						<br>
+						<br>
+				   <section data-markdown style="font-size:24pt;">
+
+| Player  | @swim   | Purpose and description   |
+|:-------:|:-------:|:----------|
+| **Sardine** | **Senders**       | senders used with Sardine patterns  |
+| d( )   | D( )  | **SuperDirt** - samples and synthesizers |
+| n( )   | N( )  | **MIDI** notes |
+| cc( )  | CC( ) | **MIDI** control messages |
+| pc( )  | PC( ) | **MIDI** program changes |
+| sy( )  | SY( ) | **MIDI** sysex message |
+| **Ziffers** | **Senders**       | senders used with Ziffers patterns  |
+| zd( )  | ZD()  | **Ziffers SuperDirt** - samples /synths with Ziffers patterns|
+| zn( )  | ZN()  | **Ziffers MIDI** notes with Ziffers patterns |
+				   </section>
+					</section>
+
+
 				  <section>
-				    Rand, range, ramp and repeat 
+				    <b>Rand, range, ramp, repeat, extend repeat, etc...</b>
 				    <pre>
 				      <code data-trim data-noescape class="language-python">
 					@swim
 					def pat(p=1, i=0):
 					    D("bd sd . sd", i=i)
 					    D("synth",
-					        midinote="C4|E4 C4~G4 C4!3",
+					        midinote="C4|E4 C4~G4 C4!3 [D4 F4 A4]!!4",
 					        cutoff="[100:1000, 100]",
 					        i=i)
 					    again(pat, p=1, i=i+1)
@@ -592,58 +642,80 @@
 				  </section>				  
 
 				  <section>
-				  <code>p</code> = period of a function
-
-				  <pre>
-				    <code data-trim data-noescape class="language-python">
-				      @swim
-				      def pat(p=0.5, i=0): # p=0.5: the function goes twice as fast
-				          D("bd sd . sd", i=i)
-				          D("synth",
-				              midinote="C4|E4 C4~G4 C4!3",
-				              cutoff="[100:1000, 100]",
-				              i=i)
-				          again(pat, p=0.5, i=i+1)
-				    </code>
-				  </pre>
-				  </section>
-
-				  <section>
+				  	<b>Controlling the playhead of iteration over a pattern</b>
+				  	<br>
+				  	<br>
 				  <code>r</code> = rate of incrementation
 				    <pre>
 				      <code data-trim data-noescape class="language-python">
-					@swim
-					def pat(p=1, i=0):
-					    D("bd sd . sd", i=i)
-					    D("synth",
-					        midinote="C4|E4 C4~G4 C4!3",
-					        cutoff="[100:1000, 100]",
-					        i=i)
-					    again(pat, p=1, i=i+1)
+				      Pa * d('amencutup:[0:20]', p=0.25, leg=.5, r=0.25)
+				      </code>
+				    </pre>
+				  	<br>
+				  <code>d</code> = divisor, skips events when i is a multiple
+				    <pre>
+				      <code data-trim data-noescape class="language-python">
+				      Pa * d('amencutup:[0:20]', p=0.25, leg=.5, r=0.25, d=3)
+				      </code>
+				    </pre>
+				  	<br>
+				  <code>i</code> = iterator increment (can skip values)
+				    <pre>
+				      <code data-trim data-noescape class="language-python">
+				      Pa * d('amencutup:[0:20]', p=0.25, leg=.5, r=0.25, d=3, i=2)
 				      </code>
 				    </pre>
 				  </section>
 
 				  <section>
-				  <code>d</code> = divisor, skips events when i is a multiple
+				  	<h2>Q: Are we done learning?</h2>
+				  	<h3>A: No... Things go waaayyyyyy deeper</h3>
+				  </section>
+
+				  <section>
+				  	<h3>It's bouncing ball time!</h3>
 				    <pre>
 				      <code data-trim data-noescape class="language-python">
-					@swim
-					def pat(p=1, i=0):
-					    D("bd sd . sd", i=i)
-					    D("synth",
-					        midinote="C4|E4 C4~G4 C4!3",
-					        cutoff="[100:1000, 100]",
-					        i=i)
-					    again(pat, p=1, i=i+1)
+@swim(until=10)
+def baba(p=0.5, i=0):
+    D('sid:2',
+      legato=0.9,
+      speed=0.5,
+      lpf='[5000:200,400]',
+      i=i
+    )
+    again(baba, p=P('[1:0.1,0.1]', i), i=i+1)
+
 				      </code>
 				    </pre>
 				  </section>
-				  
-				    <aside class="notes">	
-				      The argument p controls the period of time after which the functions calls itself back. The lower it is, the faster the function goes.<br>
-				    </aside>
+
+				  <section>
+				  	<h3>Too lazy to write code! Time to dance!</h3>
+				    <pre>
+				      <code data-trim data-noescape class="language-python">
+				      Pa * d('(eu kick 5 8)', p=.5)
+				      Pb * d('(eu hat 6~7 8)', p=.5)
+				      Pc * d('(eu snare 2~3 8 1)', p=.5)
+
+				      Pd * d('(if (every 3) cp:rand*20 tabla)', p=.5, speed='[1:4]', leg=.1)
+				      </code>
+				    </pre>
 				  </section>
+
+				  <section>
+				  	<h3><b>Lists of other things to check out:</b></h3>
+				  	<ul>
+				  		<li>Sleeping and oversleeping</li>
+				  		<li>Different clocks</li>
+				  		<li>SuperCollider Interaction</li>
+				  		<li>Presets, MIDIInstruments, MIDIControllers</li>
+				  		<li>The weird Function Library</li>
+				  		<li>The Ziffers Patterning Language</li>
+				  		<li>The interaction with other libraries</li>
+				  	</ul>
+				  </section>
+
 				  
 
 				<section>
