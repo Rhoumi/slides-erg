@@ -659,7 +659,22 @@ Pdef(\x).play;
 				    </pre>
 					</section>
 
+					<section>
+
+						<b>Last example:</b> terseness obtained through code golfing with SC
+				    <pre>
+				      <code data-trim data-noescape class="language-ruby">
+/* by  minkepatt */
+(play{LFTri.ar(CombL.ar(Dust.kr(GrayNoise.ar)*44.1,1e-17,1e-6).round(441/3.5))};) 
+/* by  minkepatt */
+(9.rand.do{{LFCub.ar(441/3+441*5.rand)*LFGauss.kr(0.25+2.25.rand.round(0.125));}.play})
+/* by  minkepatt */
+(play{Schmidt.ar(Saw.ar([48,50,60].midicps), (LFPar.kr(0.87.rand)), (LFPar.ar(CuspL.ar(0.45.rand))))};)
+				      </code>
+				    </pre>
+					</section>
 				</section>
+
 
 				<section>
 				  <h3> Tutorial </h3>
