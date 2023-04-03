@@ -574,6 +574,90 @@ fell out of use.
 					<section>
 						<!-- Empty section -->
 					</section>
+				</section>
+
+
+				<section>
+					<h1>Pre-tutorial</h1>
+					<section>
+						<!-- Empty section -->
+					</section>
+
+					<section>
+						Real-time control over sound synthesis using Control UGens. 
+				    <pre>
+				      <code data-trim data-noescape class="language-ruby">
+							s.boot;
+							a = play({Splay.ar(SinOsc.ar(MouseX.kr(200, 2000))) * 0.2});
+							a.free;
+				      </code>
+				    </pre>
+					</section>
+
+
+					<section>
+						ProxySpace, hot-swapping audio nodes in the DSP graph <br>
+						(also works with regular functions and routines too)
+				    <pre>
+				      <code data-trim data-noescape class="language-ruby">
+						ProxySpace.push(s.boot);
+      ~a = {Splay.ar(SinOsc.ar(200)) * 0.25};
+      ~a.fadeTime = 4;
+      ~a.play();
+      ~a.stop();
+				      </code>
+				    </pre>
+					</section>
+
+					<section>
+						Imperative routine. Here comes your interactive score.
+				    <pre>
+				      <code data-trim data-noescape class="language-ruby">
+ProxySpace.push(s.boot);
+~routine = Routine({
+      loop {
+            "Hey".postln;
+            1.wait;
+      }
+});
+				      </code>
+				    </pre>
+					</section>
+
+
+					<section>
+						<br>
+						<br>
+						<br>
+						Hijacking the Pattern Library made for composition.
+						<br>Take note of the verbosity!
+				    <pre>
+				      <code data-trim data-noescape class="language-ruby">
+(
+SynthDef(\demo, {
+        arg out, freq=400, release=0.5;
+        var sin, env, signal;
+        sin = SawDPW.ar(freq: freq * [1, 0.5]);
+        env = Line.ar(1.0, 0.0, release, doneAction: 2);
+        signal = Splay.ar(RLPF.ar(sin, freq: ((freq *4) * env)) * env);
+        Out.ar(out, signal);
+}).add;
+)
+				      </code>
+				    </pre>
+				    <pre>
+				      <code data-trim data-noescape class="language-ruby">
+(
+Pdef(\x, Pbind(
+        \instrument, 'demo',
+        \note, 12,
+        \dur, 1,
+));
+)
+Pdef(\x).play;
+				      </code>
+				    </pre>
+					</section>
 
 				</section>
 
