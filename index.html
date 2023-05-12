@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>LIPS in Danger</title>
+		<title>Amaze in Danger</title>
 
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
@@ -45,9 +45,8 @@
 					<h3>How/Why to live code music</h3>
 				</section>
 				<section data-markdown>
-					- Raphaël Forment
-					- Agathe Herrou
-					- Rémi Georges
+					- Elie Gavoty (Jules Cipher)
+					- Rémi Georges (Ralt144MI)
 				</section>
 				<section>
 					<h1>Outline</h1>
@@ -71,19 +70,12 @@
 						<br>
 						<embed width='1200' height='600' src="https://remigeorges.fr"></embed>
 					</section>
-
-					<section>
-						<br>
-						<br>
-						<br>
-						<iframe width="1200" height="600" src="https://www.youtube.com/embed/1qzwr48JgCg" title="Dark and cyber music with TidalCycles" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-					</section>
 					
 					<section>
 						<br>
 						<br>
 						<br>
-						<embed width='1200' height='600' src="https://raphaelforment.fr"></embed>
+						<embed width='1200' height='600' src="https://eliegavoty.xyz/"></embed>
 					</section>
 
 
@@ -122,7 +114,7 @@
 						<br>
 						<br>
 						<br>
-						<embed width='1200' height='600' src="https://tidalcycles.org/blog/tidal_profile_bubobubo"></embed>
+						<embed width='1200' height='600' src="https://ordinateurdanslatete.bandcamp.com/album/-"></embed>
 					</section>
 					
 				</section>
@@ -824,23 +816,17 @@ Pdef(\x).play;
 				  	Pick the sample names you like, explore using the <b>:</b> operator.
 				    <pre>
 				      <code data-trim data-noescape class='language-plaintext'>
-ab ade ades2 ades3 ades4 alex alphabet amencutup armora arp arpy auto baa baa2 bass bass0
-bass1 bass2 bass3 bassdm bassfoo battles bd bend bev bin birds birds3 bleep blip blue bottle
-breaks125 breaks152 breaks157 breaks165 breath bubble can casio cb cc chin circus clak click
-clubkick co coins control cosmicg cp cr crow d db diphone diphone2 dist dork2 dorkbot dr dr2
-dr55 dr_few drum drumtraks e east electro1 em2 erk f feel feelfx fest fire flick fm foo future
-gab gabba gabbaloud gabbalouder glasstap glitch glitch2 gretsch gtr h hand hardcore hardkick
-haw hc hh hh27 hit hmm ho hoover house ht if ifdrums incoming industrial insect invaders jazz
-jungbass jungle juno jvbass kicklinn koy kurt latibro led less lighter linnhats lt made made2
-mash mash2 metal miniyeah monsterb moog mouth mp3 msg mt mute newnotes noise noise2 notes
-numbers oc off outdoor pad padlong pebbles perc peri pluck popkick print proc procshort psr
-rave rave2 ravemono realclaps reverbkick rm rs sax sd seawolf sequential sf sheffield short
-sid sine sitar sn space speakspell speech speechless speedupdown stab stomp subroc3d sugar
-sundance tabla tabla2 tablex tacscan tech techno tink tok toys trump ul ulgab uxay v voodoo
-wind wobble world xmas yeah
+alphabet (26) amencutup (32)
+arpy (11) bass (4) bd (24) birds (10) birds3 (19) bleep (13) blip (2) bubble (8) casio (3) click (4) cp (2)
+crow (4) d (4) db (13) dorkbot (2) e (8) f (1) foo (27) glitch (8) hh (13) ho (6) ht (16) insect (3) invaders (18) jazz (8) jungbass (20) jungle (13) juno (12) jvbass (13) linnhats (6) lt (16)
+metal (10) moog (7) numbers (9) pad (3) perc (6) 
+pluck (17)  rm (2) rs (1) sd (2) sid (12) 
+sitar (8) sn (52) space (18) speech (7) tabla (26) tabla2 (46) techno (7)
+toys (13) voodoo (5) 
+
 				      </code>
 				    </pre>
-				    <pre><code>Pa * d('bd:2 cp speechless:4')</code></pre>
+				    <pre><code>Pa * d('bd:2 cp alphabet:4')</code></pre>
 				  </section>
 
 
@@ -869,9 +855,9 @@ Pa * d('bd!2 cp hh:2 .', p=0.25) # adds bd repeat and a rest "." - meter is felt
 				   	Adding keyword parameters (<b>key=value</b>)
 				    <pre>
 				      <code  data-trim data-noescape class="language-python">
-Pa * d('reverbkick east:4 yeah:2 mt', speed=1.2, shape=0.5, p=0.5) 
-Pa * d('reverbkick east:4 yeah:2 mt', speed='1.2 2', shape=0.5, p='0.5 0.25')
-Pa * d('reverbkick east:4 yeah:2 mt cr', speed='1.2 2.2', shape=0.7, p='0.5!2 0.25!5')
+Pa * d('sid:2 arpy:4 arpy:2 tabla', speed=1.2, shape=0.5, p=0.5) 
+Pa * d('sid:2 arpy:4 arpy:2 tabla', speed='1.2 2', shape=0.5, p='0.5 0.25')
+Pa * d('sid:2 arpy:4 arpy:2 tabla crow', speed='1.2 2.2', shape=0.7, p='0.5!2 0.25!5')
 				      </code>
 				    </pre>
 				  </section>
@@ -892,9 +878,9 @@ Pa * d('reverbkick east:4 yeah:2 mt cr', speed='1.2 2.2', shape=0.7, p='0.5!2 0.
 				   	Adding keyword parameters (<b>key=value</b>)
 				    <pre>
 				      <code  data-trim data-noescape class="language-python">
-Pa * d('reverbkick east:4 yeah:2 mt', speed=1.2, shape=0.5, p=0.5) 
-Pa * d('reverbkick east:4 yeah:2 mt', speed='1.2 2', shape=0.5, p='0.5 0.25')
-Pa * d('reverbkick east:4 yeah:2 mt cr', speed='1.2 2.2', shape=0.7, p='0.5!2 0.25!5')
+Pa * d('sid:2 arpy:4 arpy:2 tabla', speed=1.2, shape=0.5, p=0.5) 
+Pa * d('sid:2 arpy:4 arpy:2 tabla', speed='1.2 2', shape=0.5, p='0.5 0.25')
+Pa * d('sid:2 arpy:4 arpy:2 tabla crow', speed='1.2 2.2', shape=0.7, p='0.5!2 0.25!5')
 				      </code>
 				    </pre>
 				  </section>
@@ -918,6 +904,8 @@ Pa * d('reverbkick east:4 yeah:2 mt cr', speed='1.2 2.2', shape=0.7, p='0.5!2 0.
 | **Ziffers** | **Senders**       | senders used with Ziffers patterns  |
 | zd( )  | ZD()  | **Ziffers SuperDirt** - samples /synths with Ziffers patterns|
 | zn( )  | ZN()  | **Ziffers MIDI** notes with Ziffers patterns |
+| **Vortex(Tidalcycles)** | **Senders**       | senders used with Tidalcycles patterns  |
+| s( )  | S()  | **Vortex SuperDirt** - samples /synths with Tidalcycles patterns|
 				   </section>
 					</section>
 
@@ -1015,6 +1003,7 @@ def baba(p=0.5, i=0):
 				  		<li>Presets, MIDIInstruments, MIDIControllers</li>
 				  		<li>The weird Function Library</li>
 				  		<li>The Ziffers Patterning Language</li>
+						<li>The Vortex (TidalCycles) Patterning Language</li>
 				  		<li>The interaction with other libraries</li>
 				  	</ul>
 				  </section>
@@ -1022,7 +1011,7 @@ def baba(p=0.5, i=0):
 				  
 
 				<section>
-				  <h3>Now make some sound!</h3>
+				  <h3>Now make some sound together!</h3>
 
 				  <ul>
 				    <li>[Link to flok]				  
