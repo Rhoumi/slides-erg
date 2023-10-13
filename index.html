@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>Amaze in Danger</title>
+		<title>Fubar in Danger</title>
 
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
@@ -45,7 +45,6 @@
 					<h3>How/Why to live code music</h3>
 				</section>
 				<section data-markdown>
-					- Elie Gavoty (Jules Cipher)
 					- Rémi Georges (Ralt144MI)
 				</section>
 				<section>
@@ -53,13 +52,15 @@
 
 					<ul>
 						<li> What/Why is live-coding?
-						<li> Demonstration
-						<li> Workshop (Sardine)
+						<li> Differents tools
+						<li> Workshop (Topos)
+            <li> What am i using ?
+            <li> Visual live coding tools and other stuffs demos
 					</ul>
 				</section>
 
 				<section>
-					<h1>Our Music</h1>
+					<h1>My Music</h1>
 					<section>
 						<!-- Empty section -->
 					</section>
@@ -75,24 +76,9 @@
 						<br>
 						<br>
 						<br>
-						<embed width='1200' height='600' src="https://eliegavoty.xyz/"></embed>
-					</section>
-
-
-					<section>
-						<br>
-						<br>
-						<br>
 						<embed width='1200' height='600' src="https://ordinateurdanslatete.bandcamp.com/"></embed>
 					</section>
 
-
-					<section>
-						<br>
-						<br>
-						<br>
-						<embed width='1200' height='600' src="https://sardine.raphaelforment.fr/"></embed>
-					</section>
 
 
 					<section>
@@ -109,12 +95,18 @@
 						<embed width='1200' height='600' src="https://www.grrrndzero.org/index.php/2422-sam-08-04-algorave"></embed>
 					</section>
 
+					<section>
+						<br>
+						<br>
+						<br>
+						<embed width='1200' height='600' src="https://sardine   .raphaelforment.fr/"></embed>
+					</section>
 
 					<section>
 						<br>
 						<br>
 						<br>
-						<embed width='1200' height='600' src="https://ordinateurdanslatete.bandcamp.com/album/-"></embed>
+						<embed width='1200' height='600' src="https://topos.raphaelforment.fr/"></embed>
 					</section>
 					
 				</section>
@@ -575,451 +567,17 @@ fell out of use.
 				</section>
 
 
-				<section>
-					<h1>Pre-tutorial</h1>
-					<section>
-						<!-- Empty section -->
-					</section>
-
-					<section>
-						Real-time control over sound synthesis using Control UGens. 
-				    <pre>
-				      <code data-trim data-noescape class="language-ruby">
-							s.boot;
-							a = play({Splay.ar(SinOsc.ar(MouseX.kr(200, 2000))) * 0.2});
-							a.free;
-				      </code>
-				    </pre>
-					</section>
-
-
-					<section>
-						ProxySpace, hot-swapping audio nodes in the DSP graph <br>
-						(also works with regular functions and routines too)
-				    <pre>
-				      <code data-trim data-noescape class="language-ruby">
-						ProxySpace.push(s.boot);
-      ~a = {Splay.ar(SinOsc.ar(200)) * 0.25};
-      ~a.fadeTime = 4;
-      ~a.play();
-      ~a.stop();
-				      </code>
-				    </pre>
-					</section>
-
-					<section>
-						Imperative routine. Here comes your interactive score.
-				    <pre>
-				      <code data-trim data-noescape class="language-ruby">
-ProxySpace.push(s.boot);
-~routine = Routine({
-      loop {
-            "Hey".postln;
-            1.wait;
-      }
-});
-				      </code>
-				    </pre>
-					</section>
-
-
-					<section>
-						<br>
-						<br>
-						<br>
-						Hijacking the Pattern Library made for composition.
-						<br>Take note of the verbosity!
-				    <pre>
-				      <code data-trim data-noescape class="language-ruby">
-(
-SynthDef(\demo, {
-        arg out, freq=400, release=0.5;
-        var sin, env, signal;
-        sin = SawDPW.ar(freq: freq * [1, 0.5]);
-        env = Line.ar(1.0, 0.0, release, doneAction: 2);
-        signal = Splay.ar(RLPF.ar(sin, freq: ((freq *4) * env)) * env);
-        Out.ar(out, signal);
-}).add;
-)
-				      </code>
-				    </pre>
-				    <pre>
-				      <code data-trim data-noescape class="language-ruby">
-(
-Pdef(\x, Pbind(
-        \instrument, 'demo',
-        \note, 12,
-        \dur, 1,
-));
-)
-Pdef(\x).play;
-				      </code>
-				    </pre>
-					</section>
-
-					<section>
-
-						<b>Last example:</b> terseness obtained through code golfing with SC
-				    <pre>
-				      <code data-trim data-noescape class="language-ruby">
-/* by  minkepatt */
-(play{LFTri.ar(CombL.ar(Dust.kr(GrayNoise.ar)*44.1,1e-17,1e-6).round(441/3.5))};) 
-/* by  minkepatt */
-(9.rand.do{{LFCub.ar(441/3+441*5.rand)*LFGauss.kr(0.25+2.25.rand.round(0.125));}.play})
-/* by  minkepatt */
-(play{Schmidt.ar(Saw.ar([48,50,60].midicps), (LFPar.kr(0.87.rand)), (LFPar.ar(CuspL.ar(0.45.rand))))};)
-				      </code>
-				    </pre>
-					</section>
-				</section>
-
 
 				<section>
 				  <h3> Tutorial </h3>
 
 
 				  <section>
-				  	<b>Sardine</b> has two different syntaxes. They both do the same thing:
-				  	<ul>
-				  		<li> <b>Surfboards</b> or <b>Players</b> : abstract and simplified, limited.
-				  		<li> <b>Swimming Functions</b> : closer to Python, verbose but powerful.
-				  	</ul>
-				  </section>
-
-				  <section>
-						<div class="container">
-						<div class="col">
-						<h4>Swimming</h4>
-				    <pre>
-				      <code data-trim data-noescape class="language-python">
-							@swim
-							def pat(p=1, i=0):
-					    	D("bd")
-					    	again(pat, p=1, i=i+1)
-
-			    silence() # gentle
-			    panic() # unpolite
-       silence(pat)
-       pat.stop()
-				      </code>
-				    </pre>
-						</div>
-						<div class="col">
-						<h4>Players</h4>
-				    <pre>
-				      <code data-trim data-noescape class="language-python">
-      Pa * d("bd", p=1)
-
-
-
-
-		    silence() # gentle
-		    panic() # unpolite
-      silence(pat)
-      pat.stop()
-
-
-				      </code>
-				    </pre>
-						</div>
-						</div>
-				  </section>
-
-				  <section>
-						<div class="container">
-						<div class="col">
-						<h4>Swimming</h4>
-				    <pre>
-				      <code data-trim data-noescape class="language-python">
-							@swim
-							def pat(p=1, i=0):
-					    	D("bd hh sn hh . hh", i=i)
-					    	again(pat, p=1, i=i+1)
-				      </code>
-				    </pre>
-						</div>
-						<div class="col">
-						<h4>Players</h4>
-				    <pre>
-				      <code data-trim data-noescape class="language-python">
-      Pa * d("bd hh sn hh . hh", p=1)
-				      </code>
-				    </pre>
-						</div>
-						</div>
-				  </section>
-
-
-				  <section>
-						<div class="container">
-						<div class="col">
-						<h4>Swimming</h4>
-				    <pre>
-				      <code data-trim data-noescape class="language-python">
-							@swim
-							def pat(p=1, i=0):
-					    	D("bd hh sn hh . hh", i=i)
-					    	D("jvbass", n='C3 C4', i=i)
-					    	again(pat, p=1, i=i+1)
-				      </code>
-				    </pre>
-						</div>
-						<div class="col">
-						<h4>Players</h4>
-				    <pre>
-				      <code data-trim data-noescape class="language-python">
-      Pa * d("bd hh sn hh . hh", p=1)
-      Pb * d("jvbass", n='C3 C4', p=1)
-				      </code>
-				    </pre>
-						</div>
-						</div>
-				  </section>
-
-				  <section>
-						<div class="container">
-						<div class="col">
-						<h4>Swimming</h4>
-				    <pre>
-				      <code data-trim data-noescape class="language-python">
-							@swim
-							def pat(p=1, i=0):
-					    	D("bd!3 hh sn hh . hh", i=i) 
-					    	D("jvbass jvbass:2!3",
-					    	  n='C3 C4', i=i)
-					    	again(pat, p=1, i=i+1)
-				      </code>
-				    </pre>
-						</div>
-						<div class="col">
-						<h4>Players</h4>
-				    <pre>
-				      <code data-trim data-noescape class="language-python">
-      Pa * d("bd!3 hh sn hh . hh", p=1)
-      Pb * d("jvbass jvbass:2!3",
-             n='C3 C4', p=1)
-				      </code>
-				    </pre>
-						</div>
-						</div>
-				  </section>
-
-
-				  <section>
-				  	We are now going to switch to <b>Players</b>!
-				  </section>
-
-
-	
-
-				  <section>
-				  	Pick the sample names you like, explore using the <b>:</b> operator.
-				    <pre>
-				      <code data-trim data-noescape class='language-plaintext'>
-alphabet (26) amencutup (32)
-arpy (11) bass (4) bd (24) birds (10) birds3 (19) bleep (13) blip (2) bubble (8) casio (3) click (4) cp (2)
-crow (4) d (4) db (13) dorkbot (2) e (8) f (1) foo (27) glitch (8) hh (13) ho (6) ht (16) insect (3) invaders (18) jazz (8) jungbass (20) jungle (13) juno (12) jvbass (13) linnhats (6) lt (16)
-metal (10) moog (7) numbers (9) pad (3) perc (6) 
-pluck (17)  rm (2) rs (1) sd (2) sid (12) 
-sitar (8) sn (52) space (18) speech (7) tabla (26) tabla2 (46) techno (7)
-toys (13) voodoo (5) 
-
-				      </code>
-				    </pre>
-				    <pre><code>Pa * d('bd:2 cp alphabet:4')</code></pre>
-				  </section>
-
-
-				  <section>
-				  	You can use the <b>SuperDirt</b> default synthesizers too!
-				    <pre>
-				      <code data-trim data-noescape class='language-plaintext'>
-				                 superchip superpiano superkick superhat supersnare supervibe
-				      </code>
-				    </pre>
-				    They all have parameters that you'll have to learn.
-				  </section>
-
-				   <section>
-				   	 Changing the period (<b>1 period = 1 beat</b>)
-				    <pre class="r-fit-text">
-				      <code  data-trim data-noescape class="language-python">
-Pa * d('bd cp', p=0.5) # sets period to 0.5, yields 2 notes per beat
-Pa * d('bd cp hh:2', p=0.5) # adds the hh:2 sample, meter is now felt in 3
-Pa * d('bd cp hh:2', p=0.25) # period is 0.25, 4 notes per beat, rhythm is twice as fast
-Pa * d('bd!2 cp hh:2 .', p=0.25) # adds bd repeat and a rest "." - meter is felt in 5.
-				      </code>
-				    </pre>
-				    <br>
-				    <br>
-				   	Adding keyword parameters (<b>key=value</b>)
-				    <pre>
-				      <code  data-trim data-noescape class="language-python">
-Pa * d('sid:2 arpy:4 arpy:2 tabla', speed=1.2, shape=0.5, p=0.5) 
-Pa * d('sid:2 arpy:4 arpy:2 tabla', speed='1.2 2', shape=0.5, p='0.5 0.25')
-Pa * d('sid:2 arpy:4 arpy:2 tabla crow', speed='1.2 2.2', shape=0.7, p='0.5!2 0.25!5')
-				      </code>
-				    </pre>
-				  </section>
-
-
-				   <section>
-				   	Changing the tempo
-				    <pre>
-				      <code  data-trim data-noescape class="language-python">
-				      clock.tempo        # the current tempo
-				      bowl.clock.tempo   # same thing
-
-				      clock.tempo = 150  # tempo in BPM
-				      </code>
-				    </pre>
-				    <br>
-				    <br>
-				   	Adding keyword parameters (<b>key=value</b>)
-				    <pre>
-				      <code  data-trim data-noescape class="language-python">
-Pa * d('sid:2 arpy:4 arpy:2 tabla', speed=1.2, shape=0.5, p=0.5) 
-Pa * d('sid:2 arpy:4 arpy:2 tabla', speed='1.2 2', shape=0.5, p='0.5 0.25')
-Pa * d('sid:2 arpy:4 arpy:2 tabla crow', speed='1.2 2.2', shape=0.7, p='0.5!2 0.25!5')
-				      </code>
-				    </pre>
-				  </section>
-
-					<section>
-						<br>
-						<br>
-						Sardine can pattern everything!
-						<br>
-						<br>
-				   <section data-markdown style="font-size:24pt;">
-
-| Player  | @swim   | Purpose and description   |
-|:-------:|:-------:|:----------|
-| **Sardine** | **Senders**       | senders used with Sardine patterns  |
-| d( )   | D( )  | **SuperDirt** - samples and synthesizers |
-| n( )   | N( )  | **MIDI** notes |
-| cc( )  | CC( ) | **MIDI** control messages |
-| pc( )  | PC( ) | **MIDI** program changes |
-| sy( )  | SY( ) | **MIDI** sysex message |
-| **Ziffers** | **Senders**       | senders used with Ziffers patterns  |
-| zd( )  | ZD()  | **Ziffers SuperDirt** - samples /synths with Ziffers patterns|
-| zn( )  | ZN()  | **Ziffers MIDI** notes with Ziffers patterns |
-| **Vortex(Tidalcycles)** | **Senders**       | senders used with Tidalcycles patterns  |
-| s( )  | S()  | **Vortex SuperDirt** - samples /synths with Tidalcycles patterns|
-				   </section>
-					</section>
-
-
-				  <section>
-				    <b>Rand, range, ramp, repeat, extend repeat, etc...</b>
-				    <pre>
-				      <code data-trim data-noescape class="language-python">
-					@swim
-					def pat(p=1, i=0):
-					    D("bd sd . sd", i=i)
-					    D("synth",
-					        midinote="C4|E4 C4~G4 C4!3 [D4 F4 A4]!!4",
-					        cutoff="[100:1000, 100]",
-					        i=i)
-					    again(pat, p=1, i=i+1)
-				      </code>
-				    </pre>
-				    <aside class="notes">
-				      The pipe operator allows to flip a coin to chose between C and E.<br>
-				      The tilde operator creates a ramp between two extremal values (here it results in a chromatic ascent from C to G).<br>
-				      The bang/exclamation point operator instructs to repeat the value it is applied to a certain number of times.<br>
-				      The colon and square brackets allow to generate a range of evenly-spaced values, here cutoff values for a low-pass filter going from 100 to 1000 by steps of 100 (100, 200, 300 etc).
-				    </aside>
-				  </section>				  
-
-				  <section>
-				  	<b>Controlling the playhead of iteration over a pattern</b>
-				  	<br>
-				  	<br>
-				  <code>r</code> = rate of incrementation
-				    <pre>
-				      <code data-trim data-noescape class="language-python">
-				      Pa * d('amencutup:[0:20]', p=0.25, leg=.5, r=0.25)
-				      </code>
-				    </pre>
-				  	<br>
-				  <code>d</code> = divisor, skips events when i is a multiple
-				    <pre>
-				      <code data-trim data-noescape class="language-python">
-				      Pa * d('amencutup:[0:20]', p=0.25, leg=.5, r=0.25, d=3)
-				      </code>
-				    </pre>
-				  	<br>
-				  <code>i</code> = iterator increment (can skip values)
-				    <pre>
-				      <code data-trim data-noescape class="language-python">
-				      Pa * d('amencutup:[0:20]', p=0.25, leg=.5, r=0.25, d=3, i=2)
-				      </code>
-				    </pre>
-				  </section>
-
-				  <section>
-				  	<h2>Q: Are we done learning?</h2>
-				  	<h3>A: No... Things go waaayyyyyy deeper</h3>
-				  </section>
-
-				  <section>
-				  	<h3>It's bouncing ball time!</h3>
-				    <pre>
-				      <code data-trim data-noescape class="language-python">
-@swim(until=10)
-def baba(p=0.5, i=0):
-    D('sid:2',
-      legato=0.9,
-      speed=0.5,
-      lpf='[5000:200,400]',
-      i=i
-    )
-    again(baba, p=P('[1:0.1,0.1]', i), i=i+1)
-
-				      </code>
-				    </pre>
-				  </section>
-
-				  <section>
-				  	<h3>Too lazy to write code! Time to dance!</h3>
-				    <pre>
-				      <code data-trim data-noescape class="language-python">
-				      Pa * d('(eu kick 5 8)', p=.5)
-				      Pb * d('(eu hat 6~7 8)', p=.5)
-				      Pc * d('(eu snare 2~3 8 1)', p=.5)
-
-				      Pd * d('(if (every 3) cp:rand*20 tabla)', p=.5, speed='[1:4]', leg=.1)
-				      </code>
-				    </pre>
-				  </section>
-
-				  <section>
-				  	<h3><b>Lists of other things to check out:</b></h3>
-				  	<ul>
-				  		<li>Sleeping and oversleeping</li>
-				  		<li>Different clocks</li>
-				  		<li>SuperCollider Interaction</li>
-				  		<li>Presets, MIDIInstruments, MIDIControllers</li>
-				  		<li>The weird Function Library</li>
-				  		<li>The Ziffers Patterning Language</li>
-						<li>The Vortex (TidalCycles) Patterning Language</li>
-				  		<li>The interaction with other libraries</li>
-				  	</ul>
-				  </section>
-
-				  
-
-				<section>
-				  <h3>Now make some sound together!</h3>
-
-				  <ul>
-				    <li>[Link to flok]				  
-				    <li>Samples/synths to try: [list of selected available sounds]
-				    <li>Documentation: <a href="https://sardine.raphaelforment.fr/">https://sardine.raphaelforment.fr/</a>
-				  </ul>
-				</section>
-
+				  	<b>TOPOS</b> is an algorithmic sequencer. Topos uses small algorithms to represent musical sequences and processes. These can be written in just a few lines of code. Topos is aiming to be a digital playground for live algorithmic music 
+          </section>
+          <section>
+            <h3><a href="https://topos.raphaelforment.fr">Link To TOPOS</a></h3>
+          </section>
 
 			</div>
 		</div>
