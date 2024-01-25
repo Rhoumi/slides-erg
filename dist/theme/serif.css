@@ -16,13 +16,13 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
  * GLOBAL STYLES
  *********************************************/
 :root {
-  --r-background-color: #F0F1EB;
-  --r-main-font: Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif;
+  --r-background-color: WhiteSmoke;
+  --r-main-font: jgs_font, Book Antiqua, Palatino, FreeSerif, serif;
   --r-main-font-size: 40px;
   --r-main-color: #000;
   --r-block-margin: 20px;
   --r-heading-margin: 0 0 20px 0;
-  --r-heading-font: Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif;
+  --r-heading-font: jgs_font, Book Antiqua, Palatino, FreeSerif, serif;
   --r-heading-color: #383D3D;
   --r-heading-line-height: 1.2;
   --r-heading-letter-spacing: normal;
